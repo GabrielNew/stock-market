@@ -17,11 +17,26 @@ request({ url: url, json: true }, (error, response) => {
   console.log(
     "Mean value in the last 100 days: " + (sumValue / 100).toFixed(3)
   );
-  console.log(
-    "The stock price has changed by " +
-      perVariation.toFixed(2) +
-      "% over the last 100 days."
-  );
+
+  if (perVariation < 0) {
+    console.log(
+      "The stock price has decreased by " +
+        perVariation.toFixed(2) +
+        "% over the last 100 days."
+    );
+  } else if (perVariation > 0) {
+    console.log(
+      "The stock price has increased by " +
+        perVariation.toFixed(2) +
+        "% over the last 100 days."
+    );
+  } else {
+    console.log(
+      "The stock price has changed by " +
+        perVariation.toFixed(2) +
+        "% over the last 100 days."
+    );
+  }
 
   //fs.writeFileSync("example.json", JSON.stringify(response.body));
 });
