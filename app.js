@@ -1,6 +1,5 @@
 const apiCall = require("./utils/stockApiCall.js");
 
-const url = process.env.API_URL;
-const key = process.env.API_KEY;
+const { API_URL, API_KEY } = process.env;
 
-apiCall(url, key, "NVDA");
+apiCall(API_URL, API_KEY, "AAPL");
